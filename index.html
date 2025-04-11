@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="HomePage1.CSS">
+    <title>Home Page</title>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="head">
+            <div class="get-header">
+                <div class="logo">
+                    <h1>Mentora<i id="Logo" class='bx bxl-audible'></i></h1>
+                </div>
+            </div>
+        </div>
+        <div class="get-navbar"> <!--getting the nav bar items-->
+            <ul id="ul">
+                <li> <!--Here Is the Item-->
+                    <a href="HOME">HOME</a>
+                </li>
+                       
+                <li>
+                    <a href="CONTACT">CONTACT</a>
+                </li>
+            
+                <li>
+                    <a href="ABOUT">ABOUT</a>
+                </li>
+            </ul>
+        </div>
+        <div class="get-button">
+            <button id="login">Login</button>
+        </div>
+    </nav>
+    <div class="hero-section">
+        <div class="overlay">
+            <h1>LEARN. TEACH. GROW.</h1>
+            <p>Exchange skills with people worldwide.</p>
+        </div>
+    </div>
+    <div class="image-container"></div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Mentora. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="policy information">Privacy Policy</a></li>
+                <li><a href="terms-of-service">Terms of Service</a></li>
+                <li><a href="contact">Contact Us</a></li>
+                <li><a href="cookie">Cookie Settings</a></li>
+                <li><a href="rules">Website Rules</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('login').addEventListener('click',()=>{
+            window.location.href = "Loginpage.html"
+        })
+    </script>
+</body>
+</html>

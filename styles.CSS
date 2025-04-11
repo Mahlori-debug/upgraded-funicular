@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    top: 0;
+    box-sizing: border-box;
+}
+body{
+    background:#0d181f;
+   
+}
+
+.logo{
+    
+    font-style: oblique;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 300px;
+    font-size: larger;
+    
+}
+
+.navbar{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 45px;
+    background:transparent;
+    width: 100%;
+    height: 90px;
+    position: fixed;
+}
+.Active{
+    color: rgb(237, 142, 237);
+    cursor: pointer;
+}
+.Active:hover{
+    transition: .2s ease-in-out;
+    color:lime;
+}
+
+.navbar .get-navbar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 210px;
+    margin-top: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+.navbar .get-navbar a{
+    color: #fff;
+    font-weight: 450;
+    font-size: 16px;
+}
+
+.navbar .get-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-right: 50px;
+    padding-right: 55px;
+}
+.navbar .get-navbar ul li a{
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+}
+
+/* Style for the Home link - keep it active */
+.navbar .get-navbar ul li a:target {
+    color: limegreen; /* Lime green color for the active link */
+    transform: scale(1.2); /* Optional: Scale effect for the active link */
+    cursor: pointer;
+}
+.navbar .get-navbar ul li a:hover{
+    transform: scale(1.2);
+    transition: .2s ease-in-out;
+    transition-delay: 0.3s;
+}
+.navbar .get-navbar ul li a:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(120deg, #2fa890, #402862);
+    display: block;
+    margin: auto;
+    transition: .5s ease-in-out, left 0.3 ease;
+}
+
+.navbar .get-navbar ul li a:active:after{
+    width: 100%;
+    transition: .5s ease-in-out, left 0.3 ease;
+}
+
+.navbar .get-navbar ul li a:hover:after{
+    width: 100%;
+    transition: .3s ease-in-out;
+}
+ .get-button{
+    display: flex;
+    justify-content: end;
+    padding: 12px;
+    gap: 30px;
+    border: none;   
+}
+
+.get-button button{
+    margin-bottom:2px;
+    padding: 10px;  
+    border:none;
+    font-weight: 450;
+    font-size: 16px;
+    font-style: oblique;
+    border-radius: 50px;
+    width: 89px;
+}
+
+#login{
+    background: transparent;
+}
+
+#login:hover{
+    background: rgb(237, 142, 237);
+    transition: .2s ease-in-out;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#signup{
+    background:rgb(237, 142, 237) ;
+    
+}
+#signup:hover{
+    background: transparent;
+    transition: .2s ease-in-out;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.bodyContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin-top: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+.HOME {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100%; /* Ensures content doesn't touch the left edge */
+    
+}
+.HOME h2{
+    font-size: 20px;
+    margin-top: 10px;
+}
+h1{
+    margin-bottom:15px;
+}
+.HOME .HOMEPAGE{
+    margin-top:20px;
+    font-size: 14px;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width:600px;
+    box-shadow: 0 4px 8px (0, 0, 0, 0.1);
+    margin-left: 90%;
+    overflow: hidden;
+    
+}
+.HOMEPAGE p{
+    margin: 0;
+    line-height: 1.6;
+    
+}
+
+.HOMEPAGE{
+    padding:12px;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO OUR WEBSITE</title>
+    <link rel="stylesheet" href="welcome_page.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper  hover_collapse">
+        <div class="top_navbar">
+            <div class="logo">404 FOUNDERS</div>
+            <div class="menu">
+                <div class="hamburger">
+                    <i class='bx bx-menu' style='color:#ffffff'></i>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="innerSidebar">
+
+                    <!-- Profile Section -->
+                    <div class="profile">
+                        
+                    </div>
+                    <hr>
+
+                    <ul>
+                        <li><a href="DASHBOARD">
+                            <span class="icons"><i class='bx bx-qr-scan'></i></span>
+                            <span class="text">DASHBOARD</span>
+                        </a></li>
+
+                        <li><a href="SHORTCUT">
+                            <span class="icons"><i class='bx bx-link-alt'></i></span>
+                            <span class="text">SHORTCUT</span>
+                        </a></li>
+
+                        <li><a href="OVERVIEW">
+                            <span class="icons"><i class='bx bx-right-indent'></i></span>
+                            <span class="text">OVERVIEW</span>
+                        </a></li>
+                        <li><a href="EVENTS">
+                            <span class="icons"><i class='bx bx-book-open'></i></span>
+                            <span class="text">EVENTS</span>
+                        </a></li>
+                        <li><a href="ABOUT">
+                            <span class="icons"><i class='bx bx-question-mark'></i></span>
+                            <span class="text">ABOUT</span>
+                        </a></li>
+                        <li><a href="SERVICES">
+                            <span class="icons"><i class='bx bx-pen'></i></span>
+                            <span class="text">SERVICES</span>
+                        </a></li>
+                        <li><a href="CONTACT">
+                            <span class="icons"><i class='bx bx-id-card'></i></span>
+                            <span class="text">CONTACT</span>
+                        </a></li>
+                    </ul>
+
+                    <!-- Logout Button -->
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Background Color Button -->
+    <div class="color-change-container">
+        <button onclick="changeBackgroundColor()">Change Background</button>
+    </div>
+
+    <script>
+        let li_items = document.querySelectorAll('.sidebar ul li ');
+        let hamburger = document.querySelector('.hamburger');
+        let wrapper = document.querySelector('.wrapper');
+
+        // Sidebar hover effect
+        li_items.forEach((li_items) => {
+            li_items.addEventListener('mouseenter', () => {
+                li_items.closest('.wrapper').classList.remove('hover_collapse');
+            });
+        });
+
+        li_items.forEach((li_items) => {
+            li_items.addEventListener('mouseleave', () => {
+                li_items.closest('.wrapper').classList.add('hover_collapse');
+            });
+        });
+
+        // Toggle menu button
+        hamburger.addEventListener('click', () => {
+            hamburger.closest('.wrapper').classList.toggle('hover_collapse');
+        });
+
+        // Change Background Color
+        function changeBackgroundColor() {
+            let colors = ["#f4a261", "#2a9d8f", "#e76f51", "#264653", "#8d99ae"];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Logout Function
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "login.html"; // Redirect to login page (update as needed)
+        }
+    </script>
+</body>
+</html>

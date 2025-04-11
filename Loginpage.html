@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WELCOME USER</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      position: relative;
+      overflow: hidden;
+      height: 100vh;
+      background: none;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('Screenshot 2025-04-11 162318.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-wrapper {
+      background-image: url('Screenshot 2025-04-11 162318.png');
+      background-size: cover;
+      background-position: center;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      color: white;
+      width: 350px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .form-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+      border-radius: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label, input {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+      background-color: burlywood;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: transparent;
+      transform: scale(1.1);
+      border: 1px solid burlywood;
+    }
+
+    .switch-link {
+      margin-top: 15px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .switch-link button {
+      background: none;
+      color: burlywood;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .switch-link button:hover {
+      transform: scale(1.1);
+      transition: 0.3s ease-in-out;
+    }
+
+    /* Transition setup */
+    .fade-section {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      visibility: visible;
+      z-index: 3;
+    }
+    .header-register{
+        margin-bottom: 30px;
+    }
+    .header-div{
+        margin-bottom: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Login Section -->
+  <div id="loginSection" class="container fade-section show">
+    <div class="form-wrapper">
+      <form>
+        <div class="header-div">
+          <h1>Welcome User</h1>
+          <hr>
+        </div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Enter email here..." required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password here..." required>
+
+        <label><input type="checkbox" required> Remember me</label>
+
+        <button type="submit" id="login">Log In</button>
+
+        <div class="switch-link">
+          Don’t have an account?
+          <button type="button" id="goToSignUp">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Register Section -->
+  <div id="registerSection" class="container fade-section">
+    <div class="form-wrapper">
+      <form>
+        <div class="header-register">
+          <h1>Register Here</h1>
+          <hr>
+        </div>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username..." required>
+
+        <label for="regEmail">Email:</label>
+        <input type="text" id="regEmail" placeholder="Enter email here..." required>
+
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" placeholder="Enter password here..." required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password..." required>
+
+        <label><input type="checkbox"> Remember me</label>
+
+        <button type="submit" id="Sign-Up" class="signupbtn">Sign Up</button>
+
+        <div class="switch-link">
+          Already have an account?
+          <button type="button" id="goToLogin">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginSection = document.getElementById("loginSection");
+    const registerSection = document.getElementById("registerSection");
+    const goToSignUp = document.getElementById("goToSignUp");
+    const goToLogin = document.getElementById("goToLogin");
+
+    goToSignUp.addEventListener("click", () => {
+      loginSection.classList.remove("show");
+      setTimeout(() => {
+        registerSection.classList.add("show");
+      }, 200);
+    });
+
+    goToLogin.addEventListener("click", () => {
+      registerSection.classList.remove("show");
+      setTimeout(() => {
+        loginSection.classList.add("show");
+      }, 200);
+    });
+  </script>
+
+</body>
+</html>
