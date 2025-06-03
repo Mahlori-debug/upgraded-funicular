@@ -3,63 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="HomePage1.CSS">
-    <title>Home Page</title>
+    <title>Points And Rewards</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: none;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('Screenshot 2025-04-11 162318.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.header {
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.search-box input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 45px;
+    border: none;
+    width: 250px;
+    text-align: center;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    background-color: burlywood;
+    color: white;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.search-box button:hover {
+    background-color: transparent;
+    color: white;
+    transform: scale(1.2);
+    transition: .3s ease-in-out;
+}
+
+.rewards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.reward-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.reward-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.reward-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.reward-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.reward-value {
+    font-size: 24px;
+    color: #ff6f61;
+}
+
+.progress-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.progress-bar-wrapper {
+    background: #ddd;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 20px;
+    margin: 10px auto 30px;
+    width: 100%;
+}
+
+#progress-bar {
+    background: #28a745;
+    height: 100%;
+    width: 0%;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    transition: width 0.3s ease-in-out;
+}
+
+.qr-code-section {
+    display: none;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.qr-code-section img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.qr-code-section p {
+    font-size: 18px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #007bff;
+}
+
+h2 {
+    color: white;
+    margin-top: 40px;
+}
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="head">
-            <div class="get-header">
-                <div class="logo">
-                    <h1>Mentora<i id="Logo" class='bx bxl-audible'></i></h1>
-                </div>
+    <div class="container">
+        <div class="header">Points & Rewards</div>
+
+        <!-- Step Progress -->
+        <div class="progress-container">
+            <h2>How to Earn Points</h2>
+            <div class="progress-bar-wrapper">
+                <div id="progress-bar">0% Completed</div>
             </div>
         </div>
-        <div class="get-navbar"> <!--getting the nav bar items-->
-            <ul id="ul">
-                <li> <!--Here Is the Item-->
-                    <a href="HOME">HOME</a>
-                </li>
-                       
-                <li>
-                    <a href="CONTACT">CONTACT</a>
-                </li>
-            
-                <li>
-                    <a href="ABOUT">ABOUT</a>
-                </li>
-            </ul>
+
+        <!-- Step-by-Step Cards -->
+        <div class="rewards" id="steps-section">
+            <div class="reward-card" onclick="completeStep(0)">
+                <div class="reward-icon"><i class='bx bx-user-plus'></i></div>
+                <div class="reward-title">Step 1: Sign Up</div>
+                <p><a href="/signup" target="_blank">Create your account</a> to start earning.</p>
+            </div>
+
+            <div class="reward-card" onclick="completeStep(1)">
+                <div class="reward-icon"><i class='bx bx-id-card'></i></div>
+                <div class="reward-title">Step 2: Complete Profile</div>
+                <p><a href="/profile" target="_blank">Finish your profile</a> for bonus points.</p>
+            </div>
+
+            <div class="reward-card" onclick="completeStep(2)">
+                <div class="reward-icon"><i class='bx bx-calendar-check'></i></div>
+                <div class="reward-title">Step 3: Daily Check-in</div>
+                <p><a href="/daily-checkin" target="_blank">Check in now</a> and earn daily points.</p>
+            </div>
+
+            <div class="reward-card" onclick="completeStep(3)">
+                <div class="reward-icon"><i class='bx bx-user-voice'></i></div>
+                <div class="reward-title">Step 4: Refer Friends</div>
+                <p><a href="/refer" target="_blank">Invite others</a> and earn referral rewards.</p>
+            </div>
+
+            <div class="reward-card" onclick="completeStep(4)">
+                <div class="reward-icon"><i class='bx bx-trophy'></i></div>
+                <div class="reward-title">Step 5: Complete Challenges</div>
+                <p><a href="/challenges" target="_blank">Join events</a> for extra rewards.</p>
+            </div>
+
+            <div class="reward-card" onclick="completeStep(5)">
+                <div class="reward-icon"><i class='bx bx-gift'></i></div>
+                <div class="reward-title">Step 6: Redeem Rewards</div>
+                <p><a href="/rewards" target="_blank">Spend points</a> in the rewards store.</p>
+            </div>
         </div>
-        <div class="get-button">
-            <button id="login">Login</button>
-        </div>
-    </nav>
-    <div class="hero-section">
-        <div class="overlay">
-            <h1>LEARN. TEACH. GROW.</h1>
-            <p>Exchange skills with people worldwide.</p>
+
+        <!-- QR Code -->
+        <div id="qr-code-section" class="qr-code-section">
+            <img id="qr-code-img" src="" alt="QR Code">
+            <p>Scan this QR code to learn more!</p>
         </div>
     </div>
-    <div class="image-container"></div>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Mentora. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="policy information">Privacy Policy</a></li>
-                <li><a href="terms-of-service">Terms of Service</a></li>
-                <li><a href="contact">Contact Us</a></li>
-                <li><a href="cookie">Cookie Settings</a></li>
-                <li><a href="rules">Website Rules</a></li>
-            </ul>
-        </div>
-    </footer>
-    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script>
-        document.getElementById('login').addEventListener('click',()=>{
-            window.location.href = "Loginpage.html"
-        })
+        function animateCounter(id, target, duration) {
+    const counter = document.getElementById(id);
+    let current = 0;
+    const increment = Math.ceil(target / (duration / 20));
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        counter.textContent = current.toLocaleString();
+    }, 20);
+}
+
+// Animate on page load
+window.onload = () => {
+    animateCounter("points-counter", 1250, 2000);
+    animateCounter("stars-counter", 50, 2000);
+    animateCounter("rewards-counter", 5, 2000);
+    updateProgressBar();
+};
+
+// Progress logic
+const totalSteps = 6;
+let completedSteps = JSON.parse(localStorage.getItem('completedSteps')) || Array(totalSteps).fill(false);
+
+function completeStep(index) {
+    if (!completedSteps[index]) {
+        completedSteps[index] = true;
+        localStorage.setItem('completedSteps', JSON.stringify(completedSteps));
+        updateProgressBar();
+    }
+}
+
+function updateProgressBar() {
+    const completed = completedSteps.filter(Boolean).length;
+    const percent = Math.round((completed / totalSteps) * 100);
+    const bar = document.getElementById('progress-bar');
+    bar.style.width = percent + '%';
+    bar.textContent = `${percent}% Completed`;
+}
+
+// Search QR
+document.getElementById('search-btn').addEventListener('click', function() {
+    const searchInput = document.getElementById('search-input').value.trim().toLowerCase();
+    if (searchInput.includes('earn points')) {
+        generateQRCode('https://example.com/earn-points');
+        document.getElementById('qr-code-section').style.display = 'block';
+    } else {
+        alert('Sorry, no results found.');
+    }
+});
+
+function generateQRCode(url) {
+    QRCode.toDataURL(url, { errorCorrectionLevel: 'H' }, function(err, url) {
+        document.getElementById('qr-code-img').src = url;
+    });
+}
     </script>
 </body>
 </html>
